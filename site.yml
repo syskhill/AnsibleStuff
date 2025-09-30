@@ -5,12 +5,14 @@
   pre_tasks:
 
   - name: install updates (CentOS)
+    tags: always
     dnf:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
   - name: install updates (Ubuntu)
+    tags: always
     apt:
       upgrade: dist
       update_cache: yes
@@ -21,17 +23,19 @@
   tasks:
 
   - name: install apache and php for Ubuntu severs
+    tags: apache2,apache,ubuntu
     apt:
       name:
         - apache2
         - libapache2-mod-php
       state: latest
-    when: ansible_distribution== "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
 
   - name: install apache and php for CentOS severs
+    tags: apache,centos,httpd
     dnf:
       name:
         - httpd
         - php
       state: latest
-    when: ansible_distribution== "CentOS"
+    when: ansible_distribution == "CentOS"

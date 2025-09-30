@@ -1,3 +1,4 @@
-[all]
-server1 ansible_host=127.0.0.1 ansible_port=2222 ansible_user=loud ansible_ssh_private_key_file=/home/loud/.ssh/ansible apache_package=apache2 php_package=libapache-mod-php
+[web_server]
+server1 ansible_host=127.0.0.1 ansible_port=2222 ansible_user=loud ansible_ssh_private_key_file=/home/loud/.ssh/ansible
+
 
